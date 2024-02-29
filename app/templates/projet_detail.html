@@ -1,0 +1,26 @@
+<!-- projet_detail.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail du Projet - PYSEARCH</title>
+</head>
+<body>
+    <h1>Détail du Projet: {{ projet.nom }}</h1>
+    <p>Description: {{ projet.description }}</p>
+    
+    <!-- Formulaire pour ajouter un nouveau canal -->
+    <h2>Ajouter un canal de recherche</h2>
+    <a href="/projet/{{ projet['id'] }}/canal/new">Nouveau Canal</a>
+    
+
+    <!-- Ici, vous pourriez également lister les canaux existants -->
+    <!-- mot_cle when canal.keyword_id = keywords[keyword.id] -->
+    <h2>Canaux existants</h2>
+    <ul>
+        {% for canal in canaux %}
+            <li>{{ canal.nom }} - Mot-clé: {{ keywords[canal.keyword_id] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

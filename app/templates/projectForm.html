@@ -1,0 +1,19 @@
+<!-- templates/projectForm.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un nouveau projet</title>
+</head>
+<body>
+    <h1>Créer un nouveau projet</h1>
+    <form action="/projet" method="post">
+        <label for="nom">Nom du projet:</label>
+        <input type="text" id="nom" name="nom" required><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+        <button type="submit">Créer le projet</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un nouveau canal</title>
+</head>
+<body>
+    <h1>Créer un nouveau canal de recherche</h1>
+    <form action="/projet/{{ projet_id }}/canal/new" method="post">
+        <label for="nom_canal">Nom du Canal:</label>
+        <input type="text" id="nom_canal" name="nom_canal" required>
+        <label for="mot_cle">Mot-clé:</label>
+        <input type="text" id="mot_cle" name="mot_cle" required>
+        <button type="submit">Créer le Canal</button>
+    </form>    
+</body>
+</html>

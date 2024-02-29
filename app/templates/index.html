@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord de veille - PYSEARCH</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Assurez-vous de créer votre fichier CSS pour personnaliser votre interface -->
+</head>
+<body>
+    <h1>Tableau de bord de veille - PYSEARCH</h1>
+    <section id="nouveau-projet">
+        <h2>Créer un nouveau projet de veille</h2>
+        <button onclick="window.location.href='/projet/new';">Nouveau Projet</button>
+    </section>
+    <section id="projets-existants">
+        <h2>Projets existants</h2>
+        <div id="liste-projets">
+            <!-- Les projets chargés seront ajoutés ici -->
+        </div>
+    </section>
+    <script>
+        function loadProjets() {
+            fetch('/projets')
+                .then(response => response.json())
+                .then(projets => {
+                    const liste = document.getElementById('liste-projets');
+                    projets.forEach(projet => {
+                        const div = document.createElement('div');
+                        // Créez un lien vers la page de détail du projet
+                        const link = document.createElement('a');
+                        link.href = `/projet/${projet.id}`; // Assurez-vous que cette route est définie dans votre Flask app
+                        link.textContent = `Nom du projet: ${projet.nom} (ID: ${projet.id})`;
+                        div.appendChild(link);
+                        liste.appendChild(div);
+                    });
+                })
+                .catch(error => console.error('Erreur lors de la récupération des projets:', error));
+        }
+    
+        window.onload = loadProjets;
+    </script> 
+</body>
+</html>
